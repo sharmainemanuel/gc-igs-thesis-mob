@@ -92,7 +92,8 @@ data += "<td>"+result[i].student_no+"</td>";
 data += "<td>"+result[i].fname+"</td>";
 data += "<td>"+result[i].lname+"</td>";
 data += "<td>"+result[i].degree+"</td>";
-data += "<td>"+result[i].course+"</td>";                
+data += "<td>"+result[i].course+"</td>"; 
+data += "<td><button class='btn btn-primary'>Add Schedule</button></td>";                
 data += "</tr>";
             }
             $('.student-list').append(data);

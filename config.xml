@@ -1,13 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
 
-<widget id="com-dcp-mob" version="3.0.1">
+<widget id="com-gc-igs" version="3.0.1">
 
-  <name>Tech Assist - LANCE app </name>
+  <name>GC-IGS </name>
   <description>
-	DCP Monitoring App
+	GC-IGS Mobile App
   </description>
   <author email="deped-v1@gmail.com" href="http://cordova.io">
-	DCP Monitoring System
+	GC-IGS Mobile App
   </author>
   <content src="index.html" />
      <icon src="favicon.png"/>

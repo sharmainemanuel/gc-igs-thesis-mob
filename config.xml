@@ -10,7 +10,7 @@
 	GC-IGS Mobile App
   </author>
   <content src="index.html" />
-     <icon src="favicon.png"/>
+     <icon src="img/logo-igs.jpg"/>
   <plugin name="cordova-plugin-whitelist" spec="1" />
   <access origin="*" />
   <allow-intent href="http://*/*" />

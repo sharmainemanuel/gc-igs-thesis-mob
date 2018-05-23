@@ -52,8 +52,8 @@
 		</form>
 		<ul class="nav menu">
 			<li><a href="home.html"><em class="fa fa-dashboard">&nbsp;</em> Home</a></li>
-			<li class="active"><a href="students.html"><em class="fa fa-calendar">&nbsp;</em> Students</a></li>
-			<li><a href="subject.html"><em class="fa fa-bar-chart">&nbsp;</em> Subject</a></li>
+			<li><a href="students.html"><em class="fa fa-calendar">&nbsp;</em> Students</a></li>
+			<li class="active"><a href="subject.html"><em class="fa fa-bar-chart">&nbsp;</em> Subject</a></li>
 			<li><a href="billing.html"><em class="fa fa-toggle-off btn-billing">&nbsp;</em> Billing</a></li>
 			<li><a href="logout.html"><em class="fa fa-power-off btn-logout">&nbsp;</em> Logout</a></li>
 		</ul>
@@ -76,7 +76,7 @@
 			<div class="panel-heading">
 				<div class="row">
 					<div class="col-md-6">
-						Student
+						Subject
 					</div>
 
 				</div>
@@ -85,47 +85,38 @@
 				<form id="form-serialize">
 					<table class="table  table-responsive" id="dataTable" width="100%" cellspacing="0">
 						<tbody>
-
 							<tr>
-								<td>Student No</td>
-								<td><input type="text" name="studentno" class="form-control"></td>
-								<td>Firstname</td>
-								<td><input type="text" name="fname" class="form-control" required> </td>
-							</tr>
-							<tr>
-								<td>Middlename</td>
-								<td><input type="text" name="mname" class="form-control" required></td>
-								<td>Lastname</td>
-								<td><input type="text" name="lname" class="form-control" required></td>
-							</tr>
-							<tr>
-								<td>Address</td>
-								<td><input type="text" name="address" class="form-control" required></td>
-
-								<td>Contact #</td>
-								<td><input type="text" name="contactno" class="form-control" required></td>
-							</tr>
-							<tr>
-								<td>Degree</td>
-								<td><select name="degree" class="form-control" required>
-										<option value="Master in Business Management">Master in Business Management</option>
-										<option value="Master in Public Administration">Master in Public Administration</option>
-										<option value="Master of Arts in Education">Master of Arts in Education</option>
-										<option value="Master of Arts in Nursing">Master of Arts in Nursing</option>									
+								<td>Department</td>
+								<td><select name="department" class="form-control">
+									<option value="Master in Business Management">Master in Business Management</option>
+									<option value="Master in Public Administration">Master in Public Administration</option>
+									<option value="Master of Arts in Education">Master of Arts in Education</option>
+									<option value="Master of Arts in Nursing">Master of Arts in Nursing</option>									
+								</select>
+								</td>
+								<td>Semester</td>
+								<td><select name="semester" class="form-control">
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>							
 									</select>
 								</td>
-								<td>Course</td>
-								<td><input type="text" name="course" class="form-control" required></td>	
 							</tr>
 							<tr>
-								<td>Scholarship</td>
-								<td><input type="text" name="scholarship" class="form-control" required></td>
-								<td></td>
-								<td><button type="button" id="btnAddStudent" class="btn btn-primary">Submit</button>
-								</td>
+								<td>Course Code</td>
+								<td><input type="text" name="course_code" class="form-control"></td>
+								<td>Course Title</td>
+								<td><input type="text" name="course_title" class="form-control" required> </td>
+							</tr>
+							<tr>
+								<td>Units</td>
+								<td><input type="text" name="units" class="form-control" required></td>
+								<td colspan="2"><button type="button" id="btnAdd" class="btn btn-primary">Save</button></td>
 							</tr>
 						</tbody>
 					</table>
+
 				</form>
 
 			</div>
@@ -142,20 +133,20 @@
 		<script src="../js/custom.js"></script>
 		<script src="../js/app.js"></script>
 		<script>
-			$('#btnAddStudent').on("click",function (event) {
+			$('#btnAdd').on("click", function (event) {
 				var formValues = $("#form-serialize").serialize();
 				console.log(formValues)
 
 				var apiUrl = "api/";
 				$.ajax({
 					method: "post",
-					url: apiUrl+"saveStudent.php",
-					data : formValues,
-					success: function(result){
-						location.href  = 'students.html';
+					url: apiUrl + "saveSubject.php",
+					data: formValues,
+					success: function (result) {
+						location.href = 'subject.html';
 					},
-				error:function (xhr, status, error){
-						alert( "status=" + xhr.responseText + ", error=" + status + ", error=" + error );
+					error: function (xhr, status, error) {
+						alert("status=" + xhr.responseText + ", error=" + status + ", error=" + error);
 					}
 				});
 

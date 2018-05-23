@@ -9,258 +9,299 @@
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/datepicker3.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
-
+    
     <!--Custom Font-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
     <!--[if lt IE 9]>
-	<script src="js/html5shiv.js"></script>
-	<script src="js/respond.min.js"></script>
-	<![endif]-->
-</head>
-
-<body>
-    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse"><span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span></button>
-                <a class="navbar-brand" href="#">GC-IGS<span></span></a>
-            </div>
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
-
-
-    <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
-        <div class="profile-sidebar">
-            <div class="profile-userpic">
-                <img src="img/logo-gc.jpg" class="img-responsive" alt="">
-            </div>
-            <div class="profile-usertitle">
-                <div class="profile-usertitle-name">JUAN DELACRUZ</div>
-                <div class="profile-usertitle-status"><span class="indicator label-success"></span>Online</div>
-            </div>
-            <div class="clear"></div>
-        </div>
-        <div class="divider"></div>
-        <form role="search">
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search">
-            </div>
-        </form>
-        <ul class="nav menu">
-                <li class="active"><a href="home.html"><em class="fa fa-dashboard">&nbsp;</em> Home</a></li>
-                <li><a href="profile.html"><em class="fa fa-user">&nbsp;</em> Profile</a></li>
-                <li><a href="schedule.html"><em class="fa fa-calendar">&nbsp;</em> Schedule</a></li>
-                <li><a href="subject.html"><em class="fa fa-bar-chart">&nbsp;</em> Prospectus</a></li>
-                <li class="active"><a href="billing.html"><em class="fa fa-toggle-off btn-billing">&nbsp;</em> Balance</a></li>
-                <li><a href="evaluation.html"><em class="fa fa-envelope btn-billing">&nbsp;</em> Evaluation</a></li>
-                <li><a href="logout.html"><em class="fa fa-power-off btn-logout">&nbsp;</em> Logout</a></li>
-        </ul>
-    </div>
-    <!--/.sidebar-->
-
-    <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
-        <div class="row">
-            <ol class="breadcrumb">
-                <li><a href="#">
-					<em class="fa fa-home"></em>
-				</a></li>
-                <li class="active">Balance</li>
-            </ol>
-        </div>
-        <!--/.row-->
-
-        <div class="panel panel-default">
-            <div class="panel-heading">Billing</div>
-            <div class="panel-body">
-                <div class="col-md-2">
-                    <form role="form">
-                        <div class="form-group">
-                            <label>Semester</label>
-                        </div>
-                </div>
-                <div class="col-md-4">
-                    <select class="form-control">
-                                            <option>2017-2018 (1st Semester)</option>
-                                            <option>2017-2018 (1st Semester)</option>
-                                            <option>2017-2018 (1st Semester)</option>
-                                            <option>2017-2018 (1st Semester)</option>
-                                         </select>
-                </div>
-                <div class="col-md-6">
-                </div>
-                </form>
-            </div>
-        </div>
-        <!-- /.panel-->
-
-        <div class="row">
-            <div class="col-lg-12">
-                <h2>Payment/Billing</h2>
-            </div>
-            <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-body tabs">
-                        <ul class="nav nav-tabs">
-                                <li class="active"><a href="#tab3" data-toggle="tab">Billing</a></li>
-                            <li ><a href="#tab2" data-toggle="tab">Payment Details</a></li>
-                       
-                        </ul>
-                        <div class="tab-content">
-             
-                            <div class="tab-pane fade" id="tab2">
-                                <h4>Payment Details</h4>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">2017-2018 (1st-Semester)</div>
-                                    <div class="panel-body">
-                                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                            <tr>
-                                                <th>Or No</th>
-                                                <th>Amount Paid</th>
-                                                <th>Date</th>
-                                                <th>Balance</th>
-                                                <th>Cashier</th>
-                                            </tr>
-                                            <tbody >
-                                                <tr>
-                                                    <td class="td-orno">2145678</td>
-                                                    <td class="td-amountpaid">1200</td>
-                                                    <td class="td-date">3-24</td>
-                                                    <td class="td-balance">450</td>
-                                                    <td class="td-cashier"></td>
-                                                </tr>
-
-
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                                <!-- /.panel-->
-
-                            </div>
-                            <div class="tab-pane fade  in active" id="tab3">
-                                <h4>Bills Payment</h4>
-
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">2017-2018 (1st-Semester)</div>
-                                    <div class="panel-body">
-                                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-
-                                            <tbody>
-                                                <tr>
-                                                    <td>Tuition Fee</td>
-                                                    <td class="td-tuition">1800</td>
-                                                    <td>Lab Fee</td>
-                                                    <td class="td-lab">700</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Registration Fee</td>
-                                                    <td class="td-registration">0.00</td>
-                                                    <td>Computer Lab</td>
-                                                    <td class="td-comlab">750</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Misc Fee</td>
-                                                    <td class="td-misc">2000</td>
-                                                    <td>HRM</td>
-                                                    <td class="td-hrm">0.00</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>NSTP Fee</td>
-                                                    <td class="td-nstp">0.00</td>
-                                                    <td>Nursing</td>
-                                                    <td class="td-nursing">0.00</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>ICT</td>
-                                                    <td class="td-ict">250</td>
-                                                    <td>Science</td>
-                                                    <td class="td-science">0.00</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Special Assessment</td>
-                                                    <td class="td-assessment">0.00</td>
-                                                    <td>Speech Lab</td>
-                                                    <td class="td-speech">0.00</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>SSC</td>
-                                                    <td class="td-ssc">50</td>
-                                                    <td>Research Fee</td>
-                                                    <td class="td-research">50</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Logo Pin</td>
-                                                    <td class="td-logopin">0.00</td>
-                                                    <td>RLEP</td>
-                                                    <td class="td-rle">800</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Student Manual</td>
-                                                    <td class="td-manual">0</td>
-                                                    <td>Others</td>
-                                                    <td class="td-others">0.00</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>ID Card</td>
-                                                    <td class="td-idcard">50</td>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Non Residence</td>
-                                                    <td class="td-residence">500</td>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                </tr>
-                                                <td colspan="4"><strong></strong></td>
-
-                                                <tr>
-                                                    <td colspan="3"><strong>Total Fees</strong></td>
-                                                    <td colspan="1"><strong>P 5,750.00</strong></td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="3"><strong>Balance</strong></td>
-                                                    <td colspan="1"><strong>P 5,750.00</strong></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                                <!-- /.panel-->
-
-                            </div>
-                        </div>
+        <script src="js/html5shiv.js"></script>
+        <script src="js/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    
+    <body>
+        <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse"><span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span></button>
+                        <a class="navbar-brand" href="#">GC-IGS<span></span></a>
                     </div>
                 </div>
-                <!--/.panel-->
+                <!-- /.container-fluid -->
+            </nav>
+            
+            
+            <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+                <div class="profile-sidebar">
+                    <div class="profile-userpic">
+                        <img src="img/logo-gc.jpg" class="img-responsive" alt="">
+                    </div>
+                    <div class="profile-usertitle">
+                        <div class="profile-usertitle-name">JUAN DELACRUZ</div>
+                        <div class="profile-usertitle-status"><span class="indicator label-success"></span>Online</div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="divider"></div>
+                <form role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                </form>
+                <ul class="nav menu">
+                    <li class="active"><a href="home.html"><em class="fa fa-dashboard">&nbsp;</em> Home</a></li>
+                    <li><a href="profile.html"><em class="fa fa-user">&nbsp;</em> Profile</a></li>
+                    <li><a href="schedule.html"><em class="fa fa-calendar">&nbsp;</em> Schedule</a></li>
+                    <li><a href="subject.html"><em class="fa fa-bar-chart">&nbsp;</em> Prospectus</a></li>
+                    <li class="active"><a href="billing.html"><em class="fa fa-toggle-off btn-billing">&nbsp;</em> Balance</a></li>
+                    <li><a href="evaluation.html"><em class="fa fa-envelope btn-billing">&nbsp;</em> Evaluation</a></li>
+                    <li><a href="logout.html"><em class="fa fa-power-off btn-logout">&nbsp;</em> Logout</a></li>
+                </ul>
             </div>
-            <!--/.col-->
+            <!--/.sidebar-->
+            
+            <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+                <div class="row">
+                    <ol class="breadcrumb">
+                        <li><a href="#">
+                            <em class="fa fa-home"></em>
+                        </a></li>
+                        <li class="active">Balance</li>
+                    </ol>
+                </div>
+                <!--/.row-->
+                
+                <div class="panel panel-default">
+                    <div class="panel-heading">Billing</div>
+                    <div class="panel-body">
+                        <div class="col-md-2">
+                            <form role="form">
+                                <div class="form-group">
+                                    <label>Semester</label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <select class="form-control select-semester">
+                                    <option>Select</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- /.panel-->
+                
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2>Payment/Billing</h2>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-body tabs">
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a href="#tab3" data-toggle="tab">Billing</a></li>
+                                    <li ><a href="#tab2" data-toggle="tab">Payment Details</a></li>
+                                    
+                                </ul>
+                                <div class="tab-content">
+                                    
+                                    <div class="tab-pane fade" id="tab2">
+                                        <h4>Payment Details</h4>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">2017-2018 (1st-Semester)</div>
+                                            <div class="panel-body">
+                                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                                    <tr>
+                                                        <th>Or No</th>
+                                                        <th>Amount Paid</th>
+                                                        <th>Date</th>
+                                                        <th>Balance</th>
+                                                        <th>Cashier</th>
+                                                    </tr>
+                                                    <tbody >
+                                                        <tr>
+                                                            <td class="td-orno">2145678</td>
+                                                            <td class="td-amountpaid">1200</td>
+                                                            <td class="td-date">3-24</td>
+                                                            <td class="td-balance">450</td>
+                                                            <td class="td-cashier"></td>
+                                                        </tr>
+                                                        
+                                                        
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <!-- /.panel-->
+                                        
+                                    </div>
+                                    <div class="tab-pane fade  in active" id="tab3">
+                                
+                                        
+                                        <div class="panel panel-default">
+                                            
+                                            <div class="panel-body">
+                                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                                    
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Tuition Fee</td>
+                                                            <td class="td-tuition billData">1800</td>
+                                                            <td>Lab Fee</td>
+                                                            <td class="td-lab billData">700</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Registration Fee</td>
+                                                            <td class="td-registration billData">0.00</td>
+                                                            <td>Computer Lab</td>
+                                                            <td class="td-comlab billData">750</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Misc Fee</td>
+                                                            <td class="td-misc billData">2000</td>
+                                                            <td>HRM</td>
+                                                            <td class="td-hrm billData">0.00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>NSTP Fee</td>
+                                                            <td class="td-nstp billData">0.00</td>
+                                                            <td>Nursing</td>
+                                                            <td class="td-nursing billData">0.00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>ICT</td>
+                                                            <td class="td-ict billData">250</td>
+                                                            <td>Science</td>
+                                                            <td class="td-science billData">0.00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Special Assessment</td>
+                                                            <td class="td-assessmen billDatat">0.00</td>
+                                                            <td>Speech Lab</td>
+                                                            <td class="td-speech billData">0.00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>SSC</td>
+                                                            <td class="td-ssc billData">50</td>
+                                                            <td>Research Fee</td>
+                                                            <td class="td-research billData">50</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Logo Pin</td>
+                                                            <td class="td-logopin billData">0.00</td>
+                                                            <td>RLEP</td>
+                                                            <td class="td-rle billData">800</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Student Manual</td>
+                                                            <td class="td-manual billData">0</td>
+                                                            <td>Others</td>
+                                                            <td class="td-others billData">0.00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>ID Card</td>
+                                                            <td class="td-idcard billData">50</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Non Residence</td>
+                                                            <td class="td-residence billData">500</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                        </tr>
+                                                        <td colspan="4"><strong></strong></td>
+                                                        
+                                                        <tr>
+                                                            <td colspan="3"><strong>Total Fees</strong></td>
+                                                            <td colspan="1"><strong>P 5,750.00</strong></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="3"><strong>Balance</strong></td>
+                                                            <td colspan="1"><strong>P 5,750.00</strong></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <!-- /.panel-->
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/.panel-->
+                    </div>
+                    <!--/.col-->
+                </div>
+                
+            </div>
+            
+            
+            
+            
         </div>
-
-    </div>
-
-
-
-
-    </div>
-    <!--/.main-->
-
-
-    <script src="js/jquery-3.1.1.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/chart.min.js"></script>
-    <script src="js/chart-data.js"></script>
-    <script src="js/easypiechart.js"></script>
-    <script src="js/easypiechart-data.js"></script>
-    <script src="js/bootstrap-datepicker.js"></script>
-    <script src="js/custom.js"></script>
-    <script src="js/app.js"></script>
-</body>
-
-</html>
+        <!--/.main-->
+        
+        
+        <script src="js/jquery-3.1.1.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/chart.min.js"></script>
+        <script src="js/chart-data.js"></script>
+        <script src="js/easypiechart.js"></script>
+        <script src="js/easypiechart-data.js"></script>
+        <script src="js/bootstrap-datepicker.js"></script>
+        <script src="js/custom.js"></script>
+        <script src="js/app.js"></script>
+        <script>
+            $('.billData').text("");
+            $('.select-semester').on('change',function () {
+                var studentno = localStorage.getItem("studentinfo");
+                var sem = $('.select-semester').val();
+                getBillingDetails(studentno,sem)
+            });
+            function getBillingDetails(studentno,sem){
+                $.ajax({
+                    url: "admin/api/getBillingById.php?studentno="+studentno+"&sem="+sem,
+                    dataType: "json",
+                    success: function(result){
+                        var data = " ";
+                        var dec = ".00";
+                        if(result.length != 0){
+                            $.each(result, function(k,v){
+                                
+                                console.log(v) 
+                                
+                                $('.td-tuition').text(v.tuition_fee);
+                                $('.td-lab').text(v.lab_fee);
+                                //   $('.').val();
+                            });
+                        }else{
+                            $('.billData').text("0");
+                        }
+                        
+                        
+                        
+                        
+                        
+                        
+                    },
+                    error:function (xhr, status, error){
+                        alert( "status=" + xhr.responseText + ", error=" + status + ", error=" + error );
+                    }
+                });
+                
+            }
+        </script>
+    </body>
+    
+    </html>

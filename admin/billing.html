@@ -9,211 +9,439 @@
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/datepicker3.css" rel="stylesheet">
     <link href="../css/styles.css" rel="stylesheet">
-
+    
     <!--Custom Font-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
     <!--[if lt IE 9]>
-	<script src="js/html5shiv.js"></script>
-	<script src="js/respond.min.js"></script>
-	<![endif]-->
-</head>
-
-<body>
-    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse"><span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span></button>
-                <a class="navbar-brand" href="#">GC-IGS<span></span></a>
-            </div>
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
-
-
-    <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
-        <div class="profile-sidebar">
-            <div class="profile-userpic">
-                <img src="../img/logo-gc.jpg" class="img-responsive" alt="">
-            </div>
-            <div class="profile-usertitle">
-                <div class="profile-usertitle-name">ADMIN</div>
-                <div class="profile-usertitle-status"><span class="indicator label-success"></span>Online</div>
-            </div>
-            <div class="clear"></div>
-        </div>
-        <div class="divider"></div>
-        <form role="search">
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search">
-            </div>
-        </form>
-        <ul class="nav menu">
-            <li><a href="home.html"><em class="fa fa-dashboard">&nbsp;</em> Home</a></li>
-            <li><a href="students.html"><em class="fa fa-calendar">&nbsp;</em> Students</a></li>
-            <li><a href="subject.html"><em class="fa fa-bar-chart">&nbsp;</em> Subject</a></li>
-            <li class="active"><a href="billing.html"><em class="fa fa-toggle-off btn-billing">&nbsp;</em> Billing</a></li>
-            <li><a href="logout.html"><em class="fa fa-power-off btn-logout">&nbsp;</em> Logout</a></li>
-        </ul>
-    </div>
-    <!--/.sidebar-->
-
-    <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
-        <div class="row">
-            <ol class="breadcrumb">
-                <li><a href="#">
-					<em class="fa fa-home"></em>
-				</a></li>
-                <li class="active">Dashboard</li>
-            </ol>
-        </div>
-        <!--/.row-->
-
-        <div class="panel panel-default">
-            <div class="panel-heading">Student</div>
-            <div class="panel-body">
-                <form role="form">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Student</label>
-                            <input type="text" class="form-control txtStudentNo">
-                        </div>
-                        <button type="button" class="btn btn-primary btnSearchStudent">Search</button>
+        <script src="js/html5shiv.js"></script>
+        <script src="js/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    
+    <body>
+        <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse"><span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span></button>
+                        <a class="navbar-brand" href="#">GC-IGS<span></span></a>
                     </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Semester</label>
-                            <select class="form-control">
-                                <option>2017-2018 (1st Semester)</option>
-                                <option>2017-2018 (1st Semester)</option>
-                                <option>2017-2018 (1st Semester)</option>
-                                <option>2017-2018 (1st Semester)</option>
-                            </select>
-                        </div>
+                </div>
+                <!-- /.container-fluid -->
+            </nav>
+            
+            
+            <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+                <div class="profile-sidebar">
+                    <div class="profile-userpic">
+                        <img src="../img/logo-gc.jpg" class="img-responsive" alt="">
+                    </div>
+                    <div class="profile-usertitle">
+                        <div class="profile-usertitle-name">ADMIN</div>
+                        <div class="profile-usertitle-status"><span class="indicator label-success"></span>Online</div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="divider"></div>
+                <form role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
                     </div>
                 </form>
+                <ul class="nav menu">
+                    <li><a href="home.html"><em class="fa fa-dashboard">&nbsp;</em> Home</a></li>
+                    <li><a href="students.html"><em class="fa fa-calendar">&nbsp;</em> Students</a></li>
+                    <li><a href="subject.html"><em class="fa fa-bar-chart">&nbsp;</em> Subject</a></li>
+                    <li class="active"><a href="billing.html"><em class="fa fa-toggle-off btn-billing">&nbsp;</em> Billing</a></li>
+                    <li><a href="logout.html"><em class="fa fa-power-off btn-logout">&nbsp;</em> Logout</a></li>
+                </ul>
             </div>
-        </div>
-        <!-- /.panel-->
-        <div class="panel panel-default display-student-info">
-            <div class="panel-heading">Student Ino</div>
-            <div class="panel-body">        
-                    <div class="display-student-details"></div>
+            <!--/.sidebar-->
+            
+            <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+                <div class="row">
+                    <ol class="breadcrumb">
+                        <li><a href="#">
+                            <em class="fa fa-home"></em>
+                        </a></li>
+                        <li class="active">Dashboard</li>
+                    </ol>
+                </div>
+                <!--/.row-->
+                
+                <div class="panel panel-default">
+                    <div class="panel-heading">Student</div>
+                    <div class="panel-body">
+                        
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Student</label>
+                                <input type="text" class="form-control txtStudentNo">
+                            </div>
+                    
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Semester</label>
+                                <input type="text" class="form-control txtSem" name="acad_year" placeholder="(2018-2019 1st)">
+                           
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                    <button type="button" class="btn btn-primary btnSearchStudent">Search</button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <!-- /.panel-->
+                <div class="panel panel-default display-student-info">
+                    <div class="panel-heading">Student Info</div>
+                    <div class="panel-body">        
+                        <div class="display-student-details"></div>
+                    </div>
+                </div>
+                <!-- /.panel-->
+                <div class="panel panel-default">
+                    
+                    <div class="panel-body tabs" style="overflow-x:auto"    >
+                        <ul class="nav nav-tabs">
+                            <li id="tab-billing" class="active"><a href="#tab3" data-toggle="tab">Billing</a></li>
+                            <li id="tab-payment"><a href="#tab2" data-toggle="tab">Payment Details</a></li>
+                            
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane fade" id="tab2">           
+                                <div class="col-md-6">
+                                    <form id="form-payment">
+                                        <input type="hidden" name="studno" class="pay-studentno">
+                                        <input type="hidden" name="sem" class="pay-sem">
+                                        <input type="hidden" name="billing" class="pay-billing">
+                                        <input type="hidden" name="total" class="pay-total">
+                                        
+                                        <div class="form-group">
+                                            <label>Balance</label>
+                                            <input type="text" name="balance" class="balance form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>OR NO</label>
+                                            <input type="text" name="orno" class="day form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Payment</label>
+                                            <input type="number" name="amount_paid" class="time form-control">
+                                        </div>
+                                        <button type="button" class="btn btn-primary btnPay">Submit</button>
+                                    </form>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+                                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                            <tr>
+                                                <th>Or No</th>
+                                                <th>Amount Paid</th>
+                                                <th>Date</th>
+                                                <th>Balance</th>
+                                                <th>Cashier</th>
+                                            </tr>
+                                            <tbody id="tbody-payment">
+                                                
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!-- /.panel-->
+                                
+                            </div>
+                            <div class="tab-pane fade  in active" id="tab3">
+                                <form id="form-serialize">
+                                    <table class="table  table-responsive" id="dataTable" width="100%" cellspacing="0">
+                                        <input type="hidden" name="studno" class="studno">
+                                        <tbody>
+                                            <tr>
+                                                <td>Tuition Fee</td>
+                                                <td><input type="number" value="0" name="tuition" class="form-control tuition addThis"> </td>
+                                                <td>Lab Fee</td>
+                                                <td><input type="number"  value="0" name="labfee" class="form-control labfee addThis"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Registration Fee</td>
+                                                <td><input type="number" value="0" name="registration" class="form-control addThis"></td>
+                                                <td>Computer Lab</td>
+                                                <td><input type="number" value="0" name="computer" class="form-control addThis"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Misc Fee</td>
+                                                <td><input type="number" value="0" name="misc" class="form-control addThis"></td>
+                                                <td>HRM</td>
+                                                <td><input type="number" value="0" name="hrm" class="form-control addThis"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>NSTP Fee</td>
+                                                <td><input type="number" value="0" class="form-control addThis "></td>
+                                                <td>Nursing</td>
+                                                <td><input type="number" value="0" class="form-control addThis"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>ICT</td>
+                                                <td><input type="number" value="0" class="form-control addThis"></td>
+                                                <td>Science</td>
+                                                <td><input type="number" value="0" class="form-control addThis"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Special Assessment</td>
+                                                <td><input type="number" value="0" class="form-control addThis"></td>
+                                                <td>Speech Lab</td>
+                                                <td><input type="number" value="0" class="form-control addThis"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>SSC</td>
+                                                <td><input type="number" value="0" class="form-control addThis"></td>
+                                                <td>Research Fee</td>
+                                                <td><input type="number" value="0" class="form-control addThis"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Logo Pin</td>
+                                                <td><input type="number" value="0" class="form-control addThis"></td>
+                                                <td>RLEP</td>
+                                                <td><input type="number" value="0" class="form-control addThis"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Student Manual</td>
+                                                <td><input type="number" value="0" class="form-control addThis"></td>
+                                                <td>Other</td>
+                                                <td><input type="number" value="0" class="form-control addThis"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>ID Card</td>
+                                                <td><input type="number" value="0" class="form-control addThis"></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Non Residence</td>
+                                                <td><input type="number" value="0" class="form-control addThis"></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td colspan="3"><strong>Total Fees</strong></td>
+                                                <input type="hidden" name="totalFee" id="totalFee" class="form-control">
+                                                <td colspan="1"><strong><span class="totalfees"></span></strong></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="3"><strong></strong></td>
+                                                <td colspan="1">
+                                                    <button type="button" class="btn btn-primary btnSubmit">Submit</button>
+                                                </td>
+                                            </tr>
+                                            
+                                        </tbody>
+                                    </table>        
+                                </div>
+                                
+                                
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+                <!-- /.panel-->
+                
+                
+                
             </div>
-        </div>
-            <!-- /.panel-->
-        <div class="panel panel-default">
-            <div class="panel-heading">2017-2018 (1st-Semester)</div>
-            <div class="panel-body" style="overflow-x:auto">
-                <form id="form-serialize">
-                <table class="table  table-responsive" id="dataTable" width="100%" cellspacing="0">
-                    <input type="hidden" name="studno" class="studno">
-                    <tbody>
-                        <tr>
-                            <td>Tuition Fee</td>
-                            <td><input type="text" name="tuition" class="form-control"> </td>
-                            <td>Lab Fee</td>
-                            <td><input type="text" name="labfee" class="form-control"></td>
-                        </tr>
-                        <tr>
-                            <td>Registration Fee</td>
-                            <td><input type="text" name="registration" class="form-control"></td>
-                            <td>Computer Lab</td>
-                            <td><input type="text" name="computer" class="form-control"></td>
-                        </tr>
-                        <tr>
-                            <td>Misc Fee</td>
-                            <td><input type="text" name="misc" class="form-control"></td>
-                            <td>HRM</td>
-                            <td><input type="text" name="hrm" class="form-control"></td>
-                        </tr>
-                        <tr>
-                            <td>NSTP Fee</td>
-                            <td><input type="text" class="form-control"></td>
-                            <td>Nursing</td>
-                            <td><input type="text" class="form-control"></td>
-                        </tr>
-                        <tr>
-                            <td>ICT</td>
-                            <td><input type="text" class="form-control"></td>
-                            <td>Science</td>
-                            <td><input type="text" class="form-control"></td>
-                        </tr>
-                        <tr>
-                            <td>Special Assessment</td>
-                            <td><input type="text" class="form-control"></td>
-                            <td>Speech Lab</td>
-                            <td><input type="text" class="form-control"></td>
-                        </tr>
-                        <tr>
-                            <td>SSC</td>
-                            <td><input type="text" class="form-control"></td>
-                            <td>Research Fee</td>
-                            <td><input type="text" class="form-control"></td>
-                        </tr>
-                        <tr>
-                            <td>Logo Pin</td>
-                            <td><input type="text" class="form-control"></td>
-                            <td>RLEP</td>
-                            <td><input type="text" class="form-control"></td>
-                        </tr>
-                        <tr>
-                            <td>Student Manual</td>
-                            <td><input type="text" class="form-control"></td>
-                            <td>Other</td>
-                            <td><input type="text" class="form-control"></td>
-                        </tr>
-                        <tr>
-                            <td>ID Card</td>
-                            <td><input type="text" class="form-control"></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>Non Residence</td>
-                            <td><input type="text" class="form-control"></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
+            <!--/.main-->
+            
+            
+            <script src="../js/jquery-3.1.1.js"></script>
+            <script src="../js/bootstrap.min.js"></script>
+            <script src="../js/chart.min.js"></script>
+            <script src="../js/chart-data.js"></script>
+            <script src="../js/easypiechart.js"></script>
+            <script src="../js/easypiechart-data.js"></script>
+            <script src="../js/bootstrap-datepicker.js"></script>
+            <script src="../js/custom.js"></script>
+            <!-- <script src="../js/app.js"></script> -->
+            <script>
+                var apiUrl = "api/";
+                var data = " ";
+                var studno;
+                var sem;
+                
+                
+                $('.txtStudentNo').keyup(function(){
+                    var studentno = $(this).val()
+                    $.ajax({
+                        url: apiUrl+"getStudentById.php?studentno="+studentno+"",
+                        dataType: "json",
+                        success: function(result){
+                            if(result.length != 0){
+                                
+                                $('.display-student-info').show()
+                                
+                                $('.studno').val(result[0].student_no)
+                                $('.display-student-details').html(result[0].lname +", "+ result[0].fname)
+                                //     getBillingDetails(studentno)
+                                
+                            }
+                            //$('.addThis').val("")
+                            
+                            
+                        },
+                        error:function (xhr, status, error){
+                            alert( "status=" + xhr.responseText + ", error=" + status + ", error=" + error );
+                        }
+                    });
+                    
+                });
+                
+                $('.btnSubmit').click(function(){
+                    var totalFee = 0;
+                    var parseItem = 0;
+                    $('.addThis').each(function(k,v) {
+                        parseItem =  parseInt($(v).val());
+                        totalFee += parseItem;
+                    });
+                    
+                    $('#totalFee').val(totalFee);
+                    $('.totalfees').text(totalFee);
+                    
+                    var formValues = $("#form-serialize").serialize();
+                    console.log(formValues)
+                    $.ajax({
+                        method: "post",
+                        url: apiUrl+"saveBilling.php",
+                        data : formValues,
+                        success: function(result){
+                            console.log(result)
+                            // location.reload();
+                        },
+                        error:function (xhr, status, error){
+                            alert( "status=" + xhr.responseText + ", error=" + status + ", error=" + error );
+                        }
+                    });
+                    
+                });
+                
+                $('.btnPay').click(function(){
+                    var studno = $('.txtStudentNo').val();
+                    var sem = $('.txtSem').val();
+                    var billing = localStorage.getItem('billing_id');
+                    $('.pay-studentno').val(studno)
+                    $('.pay-sem').val(sem)
+                    $('.pay-billing').val(billing)
+                    var formValues = $("#form-payment").serialize();
+                    console.log(formValues)
+                    
+                    $.ajax({
+                        method: "post",
+                        url: apiUrl+"savePayment.php",
+                        data : formValues,
+                        success: function(result){
+                            console.log(result)
+                            // location.reload();
+                        },
+                        error:function (xhr, status, error){
+                            alert( "status=" + xhr.responseText + ", error=" + status + ", error=" + error );
+                        }
+                    });
+                });
+                
+                
+                $('.btnSearchStudent').click(function(){
+                    var pay_total = localStorage.getItem("pay_total");
+                    studno = $('.txtStudentNo').val();
+                    sem = $('.txtSem').val();
+                    
+                    
+                    $.ajax({
+                        url: "api/getPaymentDetails.php?studentno="+studno+"&sem="+sem,
+                        dataType: "json",
+                        success: function(result){
+                            
+                            var total_paid = 0;
 
-                        <tr>
-                            <td colspan="3"><strong>Total Fees</strong></td>
-                            <td colspan="1"><strong></strong></td>
-                        </tr>
-                        <tr>
-                            <td colspan="3"><strong></strong></td>
-                            <td colspan="1">
-                                <button type="button" class="btn btn-primary btnSubmit">Submit</button>
-                            </td>
-                        </tr>
-
-                    </tbody>
-                </table>
-                </form>
-            </div>
-        </div>
-        <!-- /.panel-->
+                            $(result).each(function (k,v) {
+                                    
+                                total_paid += parseInt(v.amount);
+                                $('#tbody-payment').append("<tr>"+
+                                                    "<td class=td-orno>2145678</td>"+
+                                                    "<td class=td-amountpaid>"+v.amount+"</td>"+
+                                                    "<td class=td-date>3-24</td>"+
+                                                    "<td class=td-balance>450</td>"+
+                                                    "<td class=td-cashier></td>"+
+                                                "</tr>");
+                                
+                            });
 
 
 
-    </div>
-    <!--/.main-->
-
-
-    <script src="../js/jquery-3.1.1.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/chart.min.js"></script>
-    <script src="../js/chart-data.js"></script>
-    <script src="../js/easypiechart.js"></script>
-    <script src="../js/easypiechart-data.js"></script>
-    <script src="../js/bootstrap-datepicker.js"></script>
-    <script src="../js/custom.js"></script>
-    <script src="../js/app.js"></script>
-    <script>
-
-    </script>
-</body>
-
-</html>
+                            console.log(pay_total)
+                            $('.balance').val(parseInt(pay_total) - parseInt(total_paid))
+                            console.log(total_paid);
+                            
+                            var data = " ";
+                            var dec = ".00";
+                            if(result.length != 0){
+                                getBillingDetails(studno,sem)
+                            }
+                            else{
+                                $('#dataTable').empty();
+                            }
+                            //     $.each(result, function(k,v){
+                                //         $('.tuition').val(v.tuition_fee)
+                                //         $('.balance').val(v.total_fee)
+                                //     });
+                                
+                                // $("#tab-billing").removeClass("active");
+                                // $("#tab-payment").addClass("active");
+                                // }
+                                
+                                
+                            },
+                            error:function (xhr, status, error){
+                                alert( "status=" + xhr.responseText + ", error=" + status + ", error=" + error );
+                            }
+                        });
+                        
+                    });
+                    
+                    function getBillingDetails(studentno,sem){
+                        $.ajax({
+                            url: "api/getBillingById.php?studentno="+studentno+"&sem="+sem,
+                            dataType: "json",
+                            success: function(result){
+                                var data = " ";
+                                var dec = ".00";
+                                if(result.length != 0){
+                                    
+                                    $.each(result, function(k,v){
+                                        localStorage.setItem("billing_id",v.id)
+                                        localStorage.setItem("pay_total",v.total_fee)
+                                        
+                                        $('.tuition').val(v.tuition_fee)
+                                        $('.pay-total').val(v.total_fee)
+                                    });
+                                    
+                                    // $("#tab-billing").removeClass("active");
+                                    // $("#tab-payment").addClass("active");
+                                }
+                                
+                                
+                            },
+                            error:function (xhr, status, error){
+                                alert( "status=" + xhr.responseText + ", error=" + status + ", error=" + error );
+                            }
+                        });
+                        
+                    }
+                    
+                </script>
+            </body>
+            
+            </html>

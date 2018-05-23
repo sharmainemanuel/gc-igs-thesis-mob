@@ -1,14 +1,13 @@
 var userUrl = "http://localhost/gc-igs-thesis/";
 var adminrUrl = "http://localhost/gc-igs-thesis/admin/";
-var apiUrl = "http://localhost/gc-igs-thesis/admin/api/";
+var apiUrl = "http://localhost/gc-igs-thesis-mob/gc-igs-thesis-mob/admin/api/";
 
 $(document).ready(function () {
  
     getStudentInfo()
-    getBillingDetails()
-    getPaymentDetails()
+    //getPaymentDetails()
     showStudentInfo()
-    showStudentList()
+ 
 });
 
 function getStudentInfo(){
@@ -27,10 +26,13 @@ function getStudentInfo(){
         }
     });
 }
-function getBillingDetails(){
-    var studentno = localStorage.getItem("username");
-    $.ajax({
-        url: "http://localhost/gc-igs-thesis/admin/api/getBillingById.php?studentno="+studentno+"",
+function getBillingDetails(snum){
+    var studentno;
+   
+        studentno = snum != undefined ? localStorage.getItem("username") : snum; 
+console.log(snum)
+        $.ajax({
+        url: "api/getBillingById.php?studentno="+studentno+"",
         dataType: "json",
         success: function(result){
             var data = " ";
@@ -53,7 +55,7 @@ function getBillingDetails(){
 function getPaymentDetails(){
     var studentno = localStorage.getItem("username");
     $.ajax({
-        url: "http://localhost/gc-igs-thesis/admin/api/getPaymentDetails.php?studentno="+studentno+"",
+        url: "api/getPaymentDetails.php?studentno="+studentno+"",
         dataType: "json",
         success: function(result){
             var data = " ";
@@ -77,72 +79,10 @@ function showStudentInfo(){
     $('.display-student-info').hide()
     
 }
-function showStudentList(){
-    var studentno = localStorage.getItem("username");
-    $.ajax({
-        url: apiUrl+"showStudents.php?",
-        dataType: "json",
-        success: function (result) {
-            var data = "";
-            for (i=0; i < result.length; i++){
-                console.log(result[i])
-data += "<tr>";
-           
-data += "<td>"+result[i].student_no+"</td>";    
-data += "<td>"+result[i].fname+"</td>";
-data += "<td>"+result[i].lname+"</td>";
-data += "<td>"+result[i].degree+"</td>";
-data += "<td>"+result[i].course+"</td>"; 
-data += "<td><button class='btn btn-primary'>Add Schedule</button></td>";                
-data += "</tr>";
-            }
-            $('.student-list').append(data);
-        },
-        error: function (xhr, status, error) {
-            alert("status=" + xhr.responseText + ", error=" + status + ", error=" + error);
-        }
-    });
-}
 
-    $('.btnSubmit').click(function(){
-        var formValues = $("#form-serialize").serialize();
-      //      console.log(formValues)
 
-        var apiUrl = "http://localhost/gc-igs-thesis/admin/api/";
-        $.ajax({
-            method: "post",
-            url: apiUrl+"saveBilling.php",
-            data : formValues,
-            success: function(result){
-             console.log(result)
-            },
-           error:function (xhr, status, error){
-                  alert( "status=" + xhr.responseText + ", error=" + status + ", error=" + error );
-              }
-          });
 
-    });
 
-    $('.btnSearchStudent').click(function(){
-        var apiUrl = "http://localhost/gc-igs-thesis/admin/api/";
-
-        var studentno = $('.txtStudentNo').val()
-        $.ajax({
-            url: apiUrl+"getStudentById.php?studentno="+studentno+"",
-            dataType: "json",
-            success: function(result){
-                $('.display-student-info').show()
-                var data = " ";
-                $('.studno').val(result[0].student_no)
-              $('.display-student-details').html(result[0].lname +", "+ result[0].fname)
-              
-              },
-           error:function (xhr, status, error){
-                  alert( "status=" + xhr.responseText + ", error=" + status + ", error=" + error );
-              }
-          });
-    
-    });
 
     $('.btn-login').click(function(){
         //alert($('.user').val())

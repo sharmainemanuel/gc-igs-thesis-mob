@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>GC-IGS</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -106,7 +107,7 @@
     <script>
       var studentno = localStorage.getItem("username");
             $.ajax({
-                url: "http://localhost/gc-igs-thesis-mob/gc-igs-thesis-mob/admin/api/getChecklist.php?studentno=" + studentno + "",
+                url: "admin/api/getChecklist.php?studentno=" + studentno + "",
                 dataType: "json",
                 success: function (result) {
                     console.log(result)

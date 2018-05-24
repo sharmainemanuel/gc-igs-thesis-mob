@@ -92,13 +92,13 @@
 					</div>
 					<div class="panel-body">
 						<form role="form">
-							<div class="col-md-2">
+							<!-- 	<div class="col-md-2">
 								
 								<div class="form-group">
 									<label>Semester</label>
 								</div>
 							</div>
-							<div class="col-md-4 acad-year">
+						<div class="col-md-4 acad-year">
 								<select class="form-control">
 									<option>2017-2018 (1st Semester)</option>
 									<option>2017-2018 (1st Semester)</option>
@@ -108,7 +108,7 @@
 							</div>
 							<div class="col-md-6">
 								<input type="text" class="form-control" placeholder="Search Student">
-							</div>
+							</div> -->
 						</form>
 					</div>
 				</div>
@@ -159,12 +159,8 @@
 			<script src="../js/custom.js"></script>
 			<script src="../js/app.js"></script>
 			<script>
-				$(document).ready(function(){
-				
-					
+				$(document).ready(function(){				
 					showStudentList();
-					
-					
 				});
 				function showStudentList() {
 					var studentno = localStorage.getItem("username");
@@ -181,34 +177,34 @@
 									data += "<td>" + result[i].degree + "</td>";
 									
 									data += "<td><button class='btn btn-primary student-actions' onclick='addSchedule("+result[i].student_no+")'>Schedule</button>";
-										data += "<button class='btn btn-primary student-actions' onclick='addGrades("+result[i].student_no+")'>Grades</button>";
-										data += "<button class='btn btn-primary student-actions' onclick='addEvaluation("+result[i].student_no+")'>Evaluation</button></td>";
-						
-											data += "</tr>";
-										}
-										$('.student-list').append(data);
-									},
-									error: function (xhr, status, error) {
-										alert("status=" + xhr.responseText + ", error=" + status + ", error=" + error);
+										data += "<button class='btn btn-primary student-actions' onclick='addEvaluation("+result[i].student_no+")'>Evaluation</button>";
+										data += "<button class='btn btn-primary student-actions' onclick='addGrades("+result[i].student_no+")'>Grades</button></td>";
+										
+										data += "</tr>";
 									}
-								});
-							}
-							function addSchedule(student_no){
-								localStorage.setItem("studentinfo",student_no)	
-								location.href = "addSchedule.html"
-								
-							}
-							function addEvaluation(student_no){
-								localStorage.setItem("studentinfo",student_no)	
-								location.href = "addEvaluation.html"
-							}
-
-								function addGrades(student_no){
-								localStorage.setItem("studentinfo",student_no)	
-								location.href = "addGrade.html";
-								
-							}
-						</script>
-					</body>
-					
-					</html>
+									$('.student-list').append(data);
+								},
+								error: function (xhr, status, error) {
+									alert("status=" + xhr.responseText + ", error=" + status + ", error=" + error);
+								}
+							});
+						}
+						function addSchedule(student_no){
+							localStorage.setItem("studentinfo",student_no)	
+							location.href = "addSchedule.html"
+							
+						}
+						function addEvaluation(student_no){
+							localStorage.setItem("studentinfo",student_no)	
+							location.href = "addEvaluation.html"
+						}
+						
+						function addGrades(student_no){
+							localStorage.setItem("studentinfo",student_no)	
+							location.href = "addGrade.html";
+							
+						}
+					</script>
+				</body>
+				
+				</html>

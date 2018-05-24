@@ -160,6 +160,7 @@
                                 <form id="form-serialize">
                                     <table class="table  table-responsive" id="dataTable" width="100%" cellspacing="0">
                                         <input type="hidden" name="studno" class="studno">
+                                        <input type="hidden" name="sem" class="ssem">
                                         <tbody>
                                             <tr>
                                                 <td>Tuition Fee</td>
@@ -175,7 +176,7 @@
                                             </tr>
                                             <tr>
                                                 <td>Misc Fee</td>
-                                                <td><input type="number" value="0" name="misc" class="form-control addThis"></td>
+                                                <td><input type="number" value="0" name="misc" class="misc form-control addThis"></td>
                                                 <td>HRM</td>
                                                 <td><input type="number" value="0" name="hrm" class="form-control addThis"></td>
                                             </tr>
@@ -310,6 +311,8 @@
                     
                     $('#totalFee').val(totalFee);
                     $('.totalfees').text(totalFee);
+                    var tsem = $('.txtSem').val();
+                     sem = $('.ssem').val(tsem);
                     
                     var formValues = $("#form-serialize").serialize();
                     console.log(formValues)
@@ -344,7 +347,7 @@
                         data : formValues,
                         success: function(result){
                             console.log(result)
-                            // location.reload();
+                         location.reload();
                         },
                         error:function (xhr, status, error){
                             alert( "status=" + xhr.responseText + ", error=" + status + ", error=" + error );
@@ -358,41 +361,39 @@
                     studno = $('.txtStudentNo').val();
                     sem = $('.txtSem').val();
                     
-                    
+                    console.log(studno)
                     $.ajax({
-                        url: "api/getPaymentDetails.php?studentno="+studno+"&sem="+sem,
+                        url: "api/getPaymentDetails.php?type=bill&studentno="+studno+"&sem="+sem,
                         dataType: "json",
                         success: function(result){
-                            
+                            console.log(result)
                             var total_paid = 0;
-
+                      
                             $(result).each(function (k,v) {
-                                    
                                 total_paid += parseInt(v.amount);
+                                var p = v.total_fee - v.amount;
                                 $('#tbody-payment').append("<tr>"+
-                                                    "<td class=td-orno>2145678</td>"+
+                                                    "<td class=td-orno>"+v.or_no+"</td>"+
                                                     "<td class=td-amountpaid>"+v.amount+"</td>"+
-                                                    "<td class=td-date>3-24</td>"+
-                                                    "<td class=td-balance>450</td>"+
+                                                    "<td class=td-date>"+v.paid_date+"</td>"+
+                                                    "<td class=td-balance>"+p+"</td>"+
                                                     "<td class=td-cashier></td>"+
                                                 "</tr>");
                                 
                             });
 
 
-
-                            console.log(pay_total)
-                            $('.balance').val(parseInt(pay_total) - parseInt(total_paid))
-                            console.log(total_paid);
+                              var tp  =  parseInt(total_paid) != NaN ? 0 : parseInt(total_paid);
+                            console.log(tp)
+                            $('.balance').val(parseInt(pay_total) - tp)
+                     //       console.log(total_paid);
                             
                             var data = " ";
                             var dec = ".00";
-                            if(result.length != 0){
+                        
                                 getBillingDetails(studno,sem)
-                            }
-                            else{
-                                $('#dataTable').empty();
-                            }
+                         
+                         
                             //     $.each(result, function(k,v){
                                 //         $('.tuition').val(v.tuition_fee)
                                 //         $('.balance').val(v.total_fee)
@@ -403,7 +404,7 @@
                                 // }
                                 
                                 
-                            },
+                            },  
                             error:function (xhr, status, error){
                                 alert( "status=" + xhr.responseText + ", error=" + status + ", error=" + error );
                             }
@@ -425,6 +426,8 @@
                                         localStorage.setItem("pay_total",v.total_fee)
                                         
                                         $('.tuition').val(v.tuition_fee)
+                                        $('.misc').val(v.misc_fee)
+                                        $('.totalfees').text(v.total_fee)
                                         $('.pay-total').val(v.total_fee)
                                     });
                                     

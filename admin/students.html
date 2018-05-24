@@ -160,10 +160,7 @@
 			<script src="../js/app.js"></script>
 			<script>
 				$(document).ready(function(){
-					$('.student-actions').change(function(){
-						console.log("daa");
-					});
-					
+				
 					
 					showStudentList();
 					
@@ -184,12 +181,9 @@
 									data += "<td>" + result[i].degree + "</td>";
 									
 									data += "<td><button class='btn btn-primary student-actions' onclick='addSchedule("+result[i].student_no+")'>Schedule</button>";
-										data += "<button class='btn btn-primary student-actions' onclick='addGrades("+result[i].student_no+")'>Grades</button></td>";
-										//data += "<td><select class='form-control student-actions' id="+result[i].student_no+">"+
-											"<option>-- --</option>"+
-											"<option value='sched'>Schedule</option>"+
-											"<option value='grades'>Grades</option></select>"+
-											"</td>";
+										data += "<button class='btn btn-primary student-actions' onclick='addGrades("+result[i].student_no+")'>Grades</button>";
+										data += "<button class='btn btn-primary student-actions' onclick='addEvaluation("+result[i].student_no+")'>Evaluation</button></td>";
+						
 											data += "</tr>";
 										}
 										$('.student-list').append(data);
@@ -203,6 +197,10 @@
 								localStorage.setItem("studentinfo",student_no)	
 								location.href = "addSchedule.html"
 								
+							}
+							function addEvaluation(student_no){
+								localStorage.setItem("studentinfo",student_no)	
+								location.href = "addEvaluation.html"
 							}
 
 								function addGrades(student_no){

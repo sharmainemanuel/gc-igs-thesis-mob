@@ -1,12 +1,17 @@
 <?php
  require_once("config.php");
 
-$subjectGrades = $_REQUEST['data'];
+$subject_id = $_REQUEST['s_id'];
+$grade = $_REQUEST['grade']; 
+$studentno = $_REQUEST['studentno'];
+$sem = $_REQUEST['sem'];
 
-$arr = json_decode(json_encode($subjectGrades), true);
-echo $arr;
-foreach ($arr as $name => $value) {
-    echo "$name: $value\n";
+
+$sql = "INSERT into tbl_checklist (id,subject_id,semester_earned,final_grade,student_no) values ('','$subject_id','$sem','$grade','$studentno')";
+if (mysqli_query($conn, $sql)) {
+    echo "inserted";
+} else {
+    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
-  
+
 ?>

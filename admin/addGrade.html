@@ -110,10 +110,8 @@
 											</tbody>
 										</table>
 										
-										<input type="hidden" name="studentno" class="tstudent_no form-control">
-										<input type="hidden" name="tcode" class="tcode">
-										<input type="hidden" name="tsubject_id" class="tsubject_id">
-										<button type="button" class="btn btn-primary btnSave">Add</button>
+										<input type="hidden" name="studentno" class="studentno_txt form-control">
+										<!-- <button type="button" class="btn btn-primary btnSave">Add</button> -->
 									</form>
 									
 								</div>
@@ -151,7 +149,27 @@
 					<div class="panel panel-default display-student-info">
 						<div class="panel-heading">Schedule Info</div>
 						<div class="panel-body">        
-							<div class="display-schedule-details"></div>
+							<form id="form-serialize">	
+								<div class="form-group">
+									<label>Semester</label>
+									<input type="semester" name="sem" class="sem form-control">
+								</div>
+								<table class="table  table-responsive" id="dataTable2" width="100%" cellspacing="0">
+									<!-- <tr>
+										<th>Code</th>
+										<th>Course Code</th>
+										<th>Course title</th>
+										<th>Units</th>
+										<th>Day</th>
+										<th>Time</th>
+									</tr> -->
+									<tbody class="prospectus-row">
+									</tbody>
+								</table>
+								
+								<input type="hidden" name="studentno" class="studentno_txt form-control">
+								<!-- <button type="button" class="btn btn-primary btnSave">Add</button> -->
+							</form>
 						</div>
 					</div>
 					
@@ -175,10 +193,41 @@
 				var sem;
 				var degree;
 				$('.studentno').text(student_no)
+				$('.studentno_txt').val(student_no)
 				getStudentById()
+
+				
 				$('.sem').change(function(){
 					var data = "";
 					sem = $(this).val();
+
+					$.ajax({
+						method: "get",
+						dataType: "json",
+						url: apiUrl + "getChecklist.php?sem="+sem+"&studno="+student_no,
+						success: function (result) {
+							console.log(result)
+							$(result).each(function(k,v){
+								data += "<tr class='s-grade-row'  data-grade=''>";
+									data += "<td class='s_id'><input type='hidden' name='"+v.id+"'>"+v.id+"</td>";
+									data += "<td class='rsubject_id'>"+v.course_code+"</td>";
+									data += "<td>"+v.course_title+"</td>";
+									data += "<td>"+v.units+"</td>";
+									data += "<td>"+v.final_grade+"</td>";
+									//data += "<td><a href='#' onClick='addgrade("+v.id+")>+</a></td>";
+									data += "<td><button type='button' class='btn btn-primary update-grade'	 onClick='addgrade("+v.id+")'>Update Grade</button></td>";
+									
+									data += "</tr>";
+								});
+								
+								$('.prospectus-row').append(data);
+							},
+							error: function (xhr, status, error) {
+								alert("status=" + xhr.responseText + ", error=" + status + ", error=" + error);
+							}
+						});
+
+
 					$.ajax({
 						method: "get",
 						dataType: "json",
@@ -187,13 +236,13 @@
 							console.log(result)
 							$(result).each(function(k,v){
 								data += "<tr class='s-grade-row'  data-grade=''>";
-									data += "<td class='s_id'>"+v.id+"</td>";
+									data += "<td class='s_id'><input type='hidden' name='"+v.id+"'>"+v.id+"</td>";
 									data += "<td class='rsubject_id'>"+v.course_code+"</td>";
 									data += "<td>"+v.course_title+"</td>";
 									data += "<td>"+v.units+"</td>";
-									data += "<td><input type='text' class='sgrade'/></td>";
-									//data += "<td><input type='text' class='g.availability'/></td>";
-									data += "<td><button class='btn btn-primary onclick='addgrade("+v.id+")'>Update Grade</button></td>";
+									data += "<td><input type='text' name='sgra' class='sgrade'/></td>";
+									//data += "<td><a href='#' onClick='addgrade("+v.id+")>+</a></td>";
+									data += "<td><button type='button' class='btn btn-primary update-grade'	 onClick='addgrade("+v.id+")'>Update Grade</button></td>";
 									
 									data += "</tr>";
 									
@@ -205,12 +254,18 @@
 								alert("status=" + xhr.responseText + ", error=" + status + ", error=" + error);
 							}
 						});
+				
+				
+				
 					});
+
+
 					
 					$('.sgrade').keyup(function(){
 						var	grade = $('.sgrade').val()
-						$('.data-g')
+				
 					});
+
 					function getStudentById(){
 						$.ajax({
 							method: "get",
@@ -226,36 +281,34 @@
 						});
 						
 					}
-					$('.btnSave').on('click',function (event) {
+			
+					function addgrade(subjectid){
 						
-						event.preventDefault();
-						var subjectGrade;
-						$('.s-grade-row').each(function(k,v){
-							console.log()
-							subjectGrade = {
-								id :  $(v).find(".s_id").text(),
-								grade : $(v).find(".sgrade").val()	
-							
-							};	
-								console.log(subjectGrade)
-
-								$.ajax({
-						method: "post",
-						url: apiUrl + "saveGrade.php",
-						data : { data : JSON.stringify(subjectGrade) , student_no : student_no},
-						success: function (result) {
-							console.log(result)
-						
+						var s_id = subjectid;
+						var grade = $('.sgrade').val();
+						var studentno = $('.studentno_txt').val();
+						var sem = $('.sem').val();
+						console.log(sem);
+														
+						$.ajax({
+							method: "post",
+							url: apiUrl + "saveGrade.php",
+							data : { 
+								s_id : s_id,
+								grade : grade,
+								studentno : student_no,
+								sem : sem
+							  },
+							success: function (result) {
+								alert(result);
+							//	location.reload()
+								
 							},
 							error: function (xhr, status, error) {
 								alert("status=" + xhr.responseText + ", error=" + status + ", error=" + error);
 							}
 						});
-						});
-				
-					});
-					
-					
+					}
 					
 				</script>
 			</body>

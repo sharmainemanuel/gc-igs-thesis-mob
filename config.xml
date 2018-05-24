@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
 
-<widget id="com-gc-igs" version="3.0.1">
+<widget id="com-gc-igs" version="3.0.2">
 
   <name>GC-IGS </name>
   <description>
 	GC-IGS Mobile App
   </description>
-  <author email="deped-v1@gmail.com" href="http://cordova.io">
+  <author email="gc-v1@gmail.com" href="http://cordova.io">
 	GC-IGS Mobile App
   </author>
   <content src="index.html" />

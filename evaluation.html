@@ -51,12 +51,12 @@
 			</div>
 		</form>
 		<ul class="nav menu">
-			<li class="active"><a href="home.html"><em class="fa fa-dashboard">&nbsp;</em> Home</a></li>
+			<li><a href="home.html"><em class="fa fa-dashboard">&nbsp;</em> Home</a></li>
 			<li><a href="profile.html"><em class="fa fa-user">&nbsp;</em> Profile</a></li>
 			<li><a href="schedule.html"><em class="fa fa-calendar">&nbsp;</em> Schedule</a></li>
 			<li><a href="subject.html"><em class="fa fa-bar-chart">&nbsp;</em> Prospectus</a></li>
 			<li><a href="billing.html"><em class="fa fa-toggle-off btn-billing">&nbsp;</em> Balance</a></li>
-			<li><a href="billing.html"><em class="fa fa-envelope btn-billing">&nbsp;</em> Evaluation</a></li>
+			<li  class="active"><a href="#"><em class="fa fa-envelope btn-billing">&nbsp;</em> Evaluation</a></li>
 			<li><a href="logout.html"><em class="fa fa-power-off btn-logout">&nbsp;</em> Logout</a></li>
 		</ul>
 	</div>
@@ -73,9 +73,24 @@
 		</div>
 		<!--/.row-->
 
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<div class="row">
+					<div class="col-md-6">
+						Evaluation
+					</div>
+					
+				</div>
+			</div>
+			<div class="panel-body" style="overflow-x:auto">
+				<div><p class="message"></p></div>
+			</div>
+		</div>
 	
 
 	</div>
+
+
 	<!--/.main-->
 
 
@@ -89,7 +104,29 @@
 	<script src="js/custom.js"></script>
 	<script src="js/app.js"></script>
 	<script>
-		
+					$(document).ready(function(){				
+					showStudentList();
+				});
+				function showStudentList() {
+					var studentno = localStorage.getItem("username");
+					var data = "";
+					$.ajax({
+						url: apiUrl + "showEvaluation.php?studentno="+studentno,
+						dataType: "json",
+						success: function (result) {
+							console.log(result)
+							$(result).each(function(k,v){
+								data += v.content;
+								data += "<br><br>"
+							});
+							
+									$('.message').append(data);
+								},
+								error: function (xhr, status, error) {
+									alert("status=" + xhr.responseText + ", error=" + status + ", error=" + error);
+								}
+							});
+						}
 	</script>
 </body>
 

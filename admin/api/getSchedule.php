@@ -4,7 +4,7 @@ require_once("config.php");
 if(isset($_REQUEST['semester'])){
     $id = $_REQUEST['studentno'];
     $semester = $_REQUEST['semester'];
-    $result = mysqli_query($conn, "SELECT * from tbl_eform left join tbl_schedule on tbl_eform.code = tbl_schedule.code where tbl_eform.student_no = '$id' and tbl_eform.semester = '$semester'");
+    $result = mysqli_query($conn, "SELECT * from tbl_eform left join tbl_schedule on tbl_eform.code = tbl_schedule.code left join tbl_subjects on tbl_subjects.id = tbl_schedule.subject_id where tbl_eform.student_no = '$id' and tbl_eform.semester = '$semester'");
     
 }
 else if(isset($_REQUEST['regdate'])){
@@ -12,7 +12,7 @@ else if(isset($_REQUEST['regdate'])){
     $regdate = $_REQUEST['regdate'];
     $result = mysqli_query($conn, "SELECT * from tbl_eform where student_no = '$id' and date_regist = '$regdate'");
     
-}
+}   
 else{
 
     $code = $_REQUEST['code'];

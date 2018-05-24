@@ -141,7 +141,7 @@
 									<div class="col-md-6">
 										<div class="form-group">
 											<label>Semester</label>
-											<input type="text" class="form-control txtSem" name="acad_year" placeholder="(2018-2019 1st)">
+											<input type="text" class="form-control txtSem" name="acad_year">
 											
 										</div>
 									</div>
@@ -156,15 +156,27 @@
 						
 					</div>
 					
-					<div class="panel panel-default display-student-info">
-						<div class="panel-heading">Schedule Info</div>
-						<div class="panel-body">        
-							<div class="display-schedule-details"></div>
-						</div>
-					</div>
-					
+				
 				</div>
 				<!-- /.panel-->
+				<div class="panel panel-default">
+
+					<div class="panel-body">        
+						<table class="table  table-responsive" id="dataTable" width="100%" cellspacing="0">
+							<tr>
+								<th>Code</th>
+								<th>Course Code</th>
+								<th>Course title</th>
+								<th>Units</th>
+								<th>Day</th>
+								<th>Time</th>
+							</tr>
+							<tbody class="sched-row">
+							</tbody>
+						</table>
+						
+					</div>
+				</div>
 				
 				
 			</div>
@@ -193,7 +205,7 @@
 					
 					$('.reg-date').val(today)
 					
-					getStudentSched()
+					//		getShedule()
 					$.ajax({
 						method: "get",
 						dataType: "json",
@@ -214,7 +226,7 @@
 				$('.btnSaveSched').on('click',function(){ 
 					var code =  $('.rcode').text();
 					var subject_id =  $('.rsubject_id').text();
-					var student_no = $('.studentno').text();
+					//	var student_no = $('.studentno').text();
 					$('.tcode').val(code);
 					$('.tsubject_id').val(subject_id);
 					$('.tstudent_no').val(student_no);
@@ -230,7 +242,7 @@
 						success: function(result){
 							console.log(result);
 							location.href = "addSchedule.html";
-							getStudentSched()
+							getShedule()
 						},
 						error:function (xhr, status, error){
 							alert( "status=" + xhr.responseText + ", error=" + status + ", error=" + error );
@@ -240,103 +252,111 @@
 					
 				});
 				
-
+				
 				$('.sem').keyup(function(){
-					if($(this).val() != ""){
-						getShedule();
-					}
-					else{
-						$('.eform-row').empty();
-					}
-
-				});
-				$('.code').keyup(function () {
-					var code = $(this).val()
-					$.ajax({
-						method: "get",
-						dataType: "json",
-						url: apiUrl + "getSchedule.php?code=" + code,
-						success: function (result) {
-							var data = ""
-							if (result.length != 0) {
-								console.log(result)
-								
-								data += "<tr class='eform'>";
-									data += "<td class='rcode'>"+code+"</td>";
-									data += "<td class='rsubject_id'>"+result[0].course_code+"</td>";
-									data += "<td>"+result[0].course_title+"</td>";
-									data += "<td>"+result[0].units+"</td>";
-									data += "<td class='rsched_day'>"+result[0].sched_day+"</td>";
-									data += "<td class='rsched_time'>"+result[0].sched_time+"</td>";
-									data += "</tr>";
-									
-									$('.eform-row').append(data);
-								}
-							}
+					// if($(this).val() != ""){
+						// 	getShedule();
+						// }
+						// else{
+							// 	$('.eform-row').empty();
+							// }
 							
 						});
-						if(code == ""){
-							$('.eform-row').empty()
-						}
-					});
-					
-					
-					
-					
-					function getStudentSched(){
-						
-						$.ajax({
-							method: "get",
-							dataType: "json",
-							url: apiUrl + "getSchedule.php?regdate=" + $('.reg-date').val() + "&studentno=" + student_no + "",
-							success: function (result) {
-								var data = ""
-								if (result.length != 0) {
-									console.log(result)
-								}
-							},
-							error: function (xhr, status, error) {
-								console.log("status=" + xhr.responseText + ", error=" + status + ", error=" + error);
-							}
-							
-						});
-					}
-					
-					function getShedule(){
-						$.ajax({
-							method: "get",
-							dataType: "json",
-							url: apiUrl + "getSchedule.php?semester=" + $('.sem').val() + "&studentno=" + student_no + "",
-							success: function (result) {
-								var data = ""
-								if (result.length != 0) {
-								$(result).each(function(k,result){
-								
-								console.log(result)
-								
-								data += "<tr class='eform'>";
-									data += "<td class='rcode'>"+result.code+"</td>";
-									data += "<td class='rsubject_id'>"+result.course_code+"</td>";
-									data += "<td>"+result.course_title+"</td>";
-									data += "<td>"+result.units+"</td>";
-									data += "<td class='rsched_day'>"+result.sched_day+"</td>";
-									data += "<td class='rsched_time'>"+result.sched_time+"</td>";
-									data += "</tr>";
+						$('.code').keyup(function () {
+							var code = $(this).val()
+							$.ajax({
+								method: "get",
+								dataType: "json",
+								url: apiUrl + "getSchedule.php?code=" + code,
+								success: function (result) {
+									var data = ""
+									if (result.length != 0) {
+										console.log(result)
+										
+										data += "<tr class='eform'>";
+											data += "<td class='rcode'>"+code+"</td>";
+											data += "<td class='rsubject_id'>"+result[0].course_code+"</td>";
+											data += "<td>"+result[0].course_title+"</td>";
+											data += "<td>"+result[0].units+"</td>";
+											data += "<td class='rsched_day'>"+result[0].sched_day+"</td>";
+											data += "<td class='rsched_time'>"+result[0].sched_time+"</td>";
+											data += "</tr>";
+											
+											$('.eform-row').append(data);
+										}
+									}
 									
-								
-								
-
 								});
-								$('.eform-row').append(data);
+								if(code == ""){
+									$('.eform-row').empty()
 								}
-							},
-							error: function (xhr, status, error) {
-								console.log("status=" + xhr.responseText + ", error=" + status + ", error=" + error);
+							});
+							
+							$('.txtSem').keyup(function() {								
+								console.log($(this).val())
+								if($(this).val() != ""){
+									getShedule();
+								}
+								else{
+									$('.eform-row').empty();
+								}
+							});
+							
+							
+							
+							function getStudentSched(){
+								var sem = $('.txtSem').val();
+								$.ajax({
+									method: "get",
+									dataType: "json",
+									url: apiUrl + "getSchedule.php?studentno=" + student_no + "&semester="+sem,
+									success: function (result) {
+										var data = ""
+										if (result.length != 0) {
+											console.log(result)
+										}
+									},
+									error: function (xhr, status, error) {
+										console.log("status=" + xhr.responseText + ", error=" + status + ", error=" + error);
+									}
+									
+								});
 							}
 							
-						});
-					}
-				</script>
-			</body>
-			
-			</html>
+							function getShedule(){
+								
+								$.ajax({
+									method: "get",
+									dataType: "json",
+									url: apiUrl + "getSchedule.php?semester=" + $('.sem').val() + "&studentno=" + student_no + "",
+									success: function (result) {
+										
+										console.log(	)
+										var data = ""
+										if (result.length != 0) {
+											$(result).each(function(k,result){
+												
+												
+												data += "<tr class='eform'>";
+													data += "<td class='rcode'>"+result.code+"</td>";
+													data += "<td class='rsubject_id'>"+result.course_code+"</td>";
+													data += "<td>"+result.course_title+"</td>";
+													data += "<td>"+result.units+"</td>";
+													data += "<td class='rsched_day'>"+result.sched_day+"</td>";
+													data += "<td class='rsched_time'>"+result.sched_time+"</td>";
+													data += "</tr>";
+				
+												});
+												$('.sched-row').append(data);
+											}
+										},
+										error: function (xhr, status, error) {
+											console.log("status=" + xhr.responseText + ", error=" + status + ", error=" + error);
+										}
+										
+									});
+								}
+							</script>
+						</body>
+						
+						</html>
